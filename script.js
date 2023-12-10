@@ -21,34 +21,25 @@ h4all.forEach(function (elem) {
     crsr.style.backgroundColor = "#95C11E";
   });
 });
-
-gsap.to("#nav", {
+var tl = gsap.timeline()
+tl.from("#nav h4", {
   backgroundColor: "#000",
-  duration: 0.5,
-  height: "110px",
-  scrollTrigger: {
-    trigger: "#nav",
-    scroller: "body",
-    // markers:true,
-    start: "top -10%",
-    end: "top -11%",
-    scrub: 1,
-  },
-});
+  duraion: 1,
+  y: 10,
+  delay: 1,
+})
 
-gsap.to("#main", {
+
+
+tl.from("#main", {
   backgroundColor: "#000",
-  scrollTrigger: {
-    trigger: "#main",
-    scroller: "body",
-    // markers: true,
-    start: "top -25%",
-    end: "top -70%",
-    scrub: 2,
-  },
-});
+  opacity: 0,
+  y: -100, stagger: 0.6,
 
-gsap.from("#about-us img,#about-us-in", {
+})
+
+
+tl.from("#about-us img,#about-us-in", {
   y: 90,
   opacity: 0,
   duration: 1,
@@ -61,7 +52,7 @@ gsap.from("#about-us img,#about-us-in", {
     scrub: 1,
   },
 });
-gsap.from(".card", {
+tl.from(".card", {
   scale: 0.8,
   // opacity:0,
   duration: 1,
@@ -75,7 +66,7 @@ gsap.from(".card", {
     scrub: 1,
   },
 });
-gsap.from("#colon1", {
+tl.from("#colon1", {
   y: -70,
   x: -70,
   scrollTrigger: {
@@ -87,7 +78,7 @@ gsap.from("#colon1", {
     scrub: 4,
   },
 });
-gsap.from("#colon2", {
+tl.from("#colon2", {
   y: 70,
   x: 70,
   scrollTrigger: {
@@ -99,16 +90,25 @@ gsap.from("#colon2", {
     scrub: 4,
   },
 });
-gsap.from("#page4 h1", {
-  y: 50,
-  scrollTrigger: {
-    trigger: "#page4 h1",
-    scroller: "body",
-    // markers:true,
-    start: "top 75%",
-    end: "top 70%",
-    scrub: 3,
-  },
-});
 
-// Thanks itna aage tak aane ke liye lekin pura code utha ke copy paste karne ki jagah khud ek baar banane ka try karna, kuch naya seekhne ko milega!
+
+var tl = gsap.timeline()
+tl.from("#loader h1", {
+  x: 100,
+  opacity: 0,
+  duration: 1,
+  stagger: 0.1,
+  // delay: 2
+})
+tl.to("#loader h1", {
+  opacity: 0,
+  x: -70,
+  stagger: 0.1,
+  duration: 1
+})
+tl.to("#loader", {
+  opacity: 0
+})
+l.to("#loader", {
+  display: "none"
+})
